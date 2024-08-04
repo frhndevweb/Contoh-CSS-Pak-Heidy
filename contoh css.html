@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasar-Dasar CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        code, pre {
+            display: block;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-size: 14px;
+        }
+        .example {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+            background-color: #e0e0e0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>1. Selector dan Properti</h2>
+        <p>Selector adalah elemen yang kita pilih untuk diterapkan gaya. Setiap selector menentukan elemen HTML yang akan dipengaruhi oleh aturan CSS. Properti adalah atribut gaya yang diterapkan pada elemen yang dipilih oleh selector.</p>
+        <p><strong>Contoh:</strong></p>
+        <pre><code>
+p {
+  color: red;
+}
+        </code></pre>
+        <div class="example">
+            <p>Ini adalah paragraf yang akan terlihat berwarna merah.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>2. Jenis-Jenis Selector</h2>
+        <p>Berbagai jenis selector digunakan untuk memilih elemen HTML yang spesifik untuk diterapkan gaya:</p>
+        <ul>
+            <li><strong>Selektor Tag</strong>: Memilih elemen berdasarkan nama tag HTML.</li>
+            <li><strong>Selektor Kelas</strong>: Memilih elemen dengan kelas tertentu, diawali dengan titik.</li>
+            <li><strong>Selektor ID</strong>: Memilih elemen dengan ID tertentu, diawali dengan pagar.</li>
+            <li><strong>Selektor Atribut</strong>: Memilih elemen berdasarkan atribut tertentu.</li>
+            <li><strong>Selektor Descendant</strong>: Memilih elemen yang merupakan keturunan dari elemen lain.</li>
+            <li><strong>Selektor Child</strong>: Memilih elemen yang merupakan anak langsung dari elemen lain.</li>
+        </ul>
+        <p><strong>Contoh:</strong></p>
+        <pre><code>
+/* Selektor Tag */
+p {
+  color: blue;
+}
+
+/* Selektor Kelas */
+.box {
+  border: 1px solid black;
+}
+
+/* Selektor ID */
+#unique {
+  background-color: yellow;
+}
+
+/* Selektor Atribut */
+input[type="text"] {
+  border: 2px solid green;
+}
+
+/* Selektor Descendant */
+div p {
+  color: gray;
+}
+
+/* Selektor Child */
+ul > li {
+  list-style-type: square;
+}
+        </code></pre>
+        <div class="example">
+            <p class="box">Ini adalah elemen dengan border hitam dan selektor kelas.</p>
+            <div id="unique">Ini adalah elemen dengan background kuning dan selektor ID.</div>
+            <input type="text" placeholder="Input teks" />
+            <div>
+                <p>Ini adalah paragraf di dalam div.</p>
+            </div>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Box Model</h2>
+        <p>CSS Box Model adalah konsep yang menjelaskan bagaimana elemen HTML diatur dan ditata. Ini terdiri dari Content, Padding, Border, dan Margin.</p>
+        <p><strong>Contoh:</strong></p>
+        <pre><code>
+div {
+  width: 200px; /* Content width */
+  padding: 10px; /* Space inside element */
+  border: 1px solid black; /* Border around padding */
+  margin: 20px; /* Space outside element */
+}
+        </code></pre>
+        <div class="example" style="width: 200px; padding: 10px; border: 1px solid black; margin: 20px;">
+            Ini adalah contoh elemen dengan box model CSS.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Layout yang Unik</h2>
+        <p><strong>Flexbox</strong>: Metode untuk menyusun elemen dalam satu dimensi (baris atau kolom) dengan cara yang fleksibel.</p>
+        <pre><code>
+.container {
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+}
+        </code></pre>
+        <p><strong>Grid</strong>: Metode untuk menyusun elemen dalam dua dimensi (baris dan kolom) dengan cara yang lebih kompleks.</p>
+        <pre><code>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+}
+        </code></pre>
+        <div class="example" style="display: flex; justify-content: space-between; background-color: #ddd; padding: 10px;">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+        </div>
+        <div class="example" style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: #ddd; padding: 10px;">
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Responsive Design</h2>
+        <p>Desain responsif memungkinkan situs web menyesuaikan tampilan berdasarkan ukuran layar perangkat. Ini biasanya dilakukan dengan menggunakan media queries.</p>
+        <pre><code>
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+}
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>6. Animasi</h2>
+        <p>CSS Animasi memungkinkan pembuatan animasi menggunakan @keyframes dan properti animation.</p>
+        <pre><code>
+@keyframes example {
+  from { background-color: red; }
+  to { background-color: yellow; }
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation: example 5s infinite;
+}
+        </code></pre>
+        <div class="example" style="width: 100px; height: 100px; background-color: red; animation: example 5s infinite;">
+            Animasi contoh
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>7. Variabel</h2>
+        <p>CSS Variabel memungkinkan Anda menyimpan nilai yang dapat digunakan di beberapa tempat dalam stylesheet.</p>
+        <pre><code>
+:root {
+  --main-color: blue;
+}
+
+.box {
+  color: var(--main-color);
+}
+        </code></pre>
+        <div class="example" style="color: blue;">
+            Ini adalah elemen dengan warna teks menggunakan variabel CSS.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>8. Custom Property</h2>
+        <p>Custom Property adalah cara untuk mendefinisikan variabel dalam CSS yang dapat digunakan di seluruh stylesheet.</p>
+        <pre><code>
+:root {
+  --main-bg-color: lightblue;
+}
+
+.container {
+  background-color: var(--main-bg-color);
+}
+        </code></pre>
+        <div class="example" style="background-color: lightblue; padding: 10px;">
+            Ini adalah elemen dengan background menggunakan custom property CSS.
+        </div>
+    </div>
+</body>
+</html>
