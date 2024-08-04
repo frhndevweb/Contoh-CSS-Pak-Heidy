@@ -39,6 +39,33 @@
             background-color: #e0e0e0;
             color: #333;
         }
+        /* Keyframe Animations */
+        @keyframes colorChange {
+            0% { background-color: red; }
+            50% { background-color: green; }
+            100% { background-color: blue; }
+        }
+
+        @keyframes moveAndScale {
+            0% {
+                transform: translateX(0) scale(1);
+                background-color: red;
+            }
+            50% {
+                transform: translateX(100px) scale(1.5);
+                background-color: yellow;
+            }
+            100% {
+                transform: translateX(0) scale(1);
+                background-color: blue;
+            }
+        }
+
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            animation: colorChange 4s infinite, moveAndScale 4s infinite;
+        }
     </style>
 </head>
 <body>
@@ -69,32 +96,32 @@ p {
         </ul>
         <p><strong>Contoh:</strong></p>
         <pre><code>
-/ Selektor Tag /
+/* Selektor Tag */
 p {
   color: blue;
 }
 
-/ Selektor Kelas /
+/* Selektor Kelas */
 .box {
   border: 1px solid black;
 }
 
-/ Selektor ID /
+/* Selektor ID */
 #unique {
   background-color: yellow;
 }
 
-/ Selektor Atribut /
+/* Selektor Atribut */
 input[type="text"] {
   border: 2px solid green;
 }
 
-/ Selektor Descendant /
+/* Selektor Descendant */
 div p {
   color: gray;
 }
 
-/ Selektor Child /
+/* Selektor Child */
 ul > li {
   list-style-type: square;
 }
@@ -119,10 +146,10 @@ ul > li {
         <p><strong>Contoh:</strong></p>
         <pre><code>
 div {
-  width: 200px; / Content width /
-  padding: 10px; / Space inside element /
-  border: 1px solid black; / Border around padding /
-  margin: 20px; / Space outside element /
+  width: 200px; /* Content width */
+  padding: 10px; /* Space inside element */
+  border: 1px solid black; /* Border around padding */
+  margin: 20px; /* Space outside element */
 }
         </code></pre>
         <div class="example" style="width: 200px; padding: 10px; border: 1px solid black; margin: 20px;">
@@ -136,14 +163,14 @@ div {
         <pre><code>
 .container {
   display: flex;
-  justify-content: space-between; / Align items horizontally /
+  justify-content: space-between; /* Align items horizontally */
 }
         </code></pre>
         <p><strong>Grid</strong>: Metode untuk menyusun elemen dalam dua dimensi (baris dan kolom) dengan cara yang lebih kompleks.</p>
         <pre><code>
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; / Three equal columns /
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
 }
         </code></pre>
         <div class="example" style="display: flex; justify-content: space-between; background-color: #ddd; padding: 10px;">
@@ -164,7 +191,7 @@ div {
         <pre><code>
 @media (max-width: 600px) {
   .container {
-    flex-direction: column; / Stack items vertically on small screens /
+    flex-direction: column; /* Stack items vertically on small screens */
   }
 }
         </code></pre>
@@ -172,23 +199,45 @@ div {
 
     <div class="section">
         <h2>6. Animasi</h2>
-        <p>CSS Animasi memungkinkan pembuatan animasi menggunakan @keyframes dan properti animation.</p>
+        <p>CSS Animasi memungkinkan pembuatan animasi dengan menggunakan @keyframes dan properti animation. Animasi dapat mengubah properti CSS dari satu nilai ke nilai lainnya secara bertahap.</p>
+        <p><strong>Contoh:</strong></p>
         <pre><code>
-@keyframes example {
-  from { background-color: red; }
-  to { background-color: yellow; }
+/* Keyframe Animations */
+@keyframes colorChange {
+    0% { background-color: red; }
+    50% { background-color: green; }
+    100% { background-color: blue; }
 }
 
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-  animation: example 5s infinite;
+@keyframes moveAndScale {
+    0% {
+        transform: translateX(0) scale(1);
+        background-color: red;
+    }
+    50% {
+        transform: translateX(100px) scale(1.5);
+        background-color: yellow;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        background-color: blue;
+    }
+}
+
+.animated-box {
+    width: 100px;
+    height: 100px;
+    animation: colorChange 4s infinite, moveAndScale 4s infinite;
 }
         </code></pre>
-        <div class="example" style="width: 100px; height: 100px; background-color: red; animation: example 5s infinite;">
+        <div class="example animated-box">
             Animasi contoh
         </div>
+        <p>Dalam contoh di atas:</p>
+        <ul>
+            <li><strong>colorChange</strong>: Animasi ini mengubah warna latar belakang elemen dari merah ke hijau, lalu ke biru.</li>
+            <li><strong>moveAndScale</strong>: Animasi ini memindahkan elemen secara horizontal dan memperbesar ukurannya sementara mengubah warnanya dari merah ke kuning dan kembali ke biru.</li>
+        </ul>
     </div>
 
     <div class="section">
