@@ -4,48 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dasar-Dasar CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         .section {
             margin-bottom: 40px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         h2 {
-            color: #333;
+            color: #444;
+            font-weight: 700;
+        }
+        p, ul {
+            margin-bottom: 15px;
         }
         code, pre {
             display: block;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
+            padding: 15px;
+            border-radius: 6px;
             margin-top: 10px;
             white-space: pre-wrap;
             font-size: 14px;
         }
         .example {
-            padding: 10px;
+            padding: 15px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 6px;
             margin-top: 10px;
             background-color: #e0e0e0;
             color: #333;
         }
-        /* Keyframe Animations */
         @keyframes colorChange {
             0% { background-color: red; }
             50% { background-color: green; }
             100% { background-color: blue; }
         }
-
         @keyframes moveAndScale {
             0% {
                 transform: translateX(0) scale(1);
@@ -60,42 +74,62 @@
                 background-color: blue;
             }
         }
-
         .animated-box {
             width: 100px;
             height: 100px;
             animation: colorChange 4s infinite, moveAndScale 4s infinite;
         }
+        @media (max-width: 600px) {
+            .section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        .btn-next {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-next:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
-    <div class="section">
-        <h2>1. Selector dan Properti</h2>
-        <p>Selector adalah elemen yang kita pilih untuk diterapkan gaya. Setiap selector menentukan elemen HTML yang akan dipengaruhi oleh aturan CSS. Properti adalah atribut gaya yang diterapkan pada elemen yang dipilih oleh selector.</p>
-        <p><strong>Contoh:</strong></p>
-        <pre><code>
+    <div class="container">
+        <div class="section">
+            <h2>1. Selector dan Properti</h2>
+            <p>Selector adalah elemen yang kita pilih untuk diterapkan gaya. Setiap selector menentukan elemen HTML yang akan dipengaruhi oleh aturan CSS. Properti adalah atribut gaya yang diterapkan pada elemen yang dipilih oleh selector.</p>
+            <p><strong>Contoh:</strong></p>
+            <pre><code>
 p {
   color: red;
 }
-        </code></pre>
-        <div class="example">
-            <p>Ini adalah paragraf yang akan terlihat berwarna merah.</p>
+            </code></pre>
+            <div class="example">
+                <p>Ini adalah paragraf yang akan terlihat berwarna merah.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>2. Jenis-Jenis Selector</h2>
-        <p>Berbagai jenis selector digunakan untuk memilih elemen HTML yang spesifik untuk diterapkan gaya:</p>
-        <ul>
-            <li><strong>Selektor Tag</strong>: Memilih elemen berdasarkan nama tag HTML.</li>
-            <li><strong>Selektor Kelas</strong>: Memilih elemen dengan kelas tertentu, diawali dengan titik.</li>
-            <li><strong>Selektor ID</strong>: Memilih elemen dengan ID tertentu, diawali dengan pagar.</li>
-            <li><strong>Selektor Atribut</strong>: Memilih elemen berdasarkan atribut tertentu.</li>
-            <li><strong>Selektor Descendant</strong>: Memilih elemen yang merupakan keturunan dari elemen lain.</li>
-            <li><strong>Selektor Child</strong>: Memilih elemen yang merupakan anak langsung dari elemen lain.</li>
-        </ul>
-        <p><strong>Contoh:</strong></p>
-        <pre><code>
+        <div class="section">
+            <h2>2. Jenis-Jenis Selector</h2>
+            <p>Berbagai jenis selector digunakan untuk memilih elemen HTML yang spesifik untuk diterapkan gaya:</p>
+            <ul>
+                <li><strong>Selektor Tag</strong>: Memilih elemen berdasarkan nama tag HTML.</li>
+                <li><strong>Selektor Kelas</strong>: Memilih elemen dengan kelas tertentu, diawali dengan titik.</li>
+                <li><strong>Selektor ID</strong>: Memilih elemen dengan ID tertentu, diawali dengan pagar.</li>
+                <li><strong>Selektor Atribut</strong>: Memilih elemen berdasarkan atribut tertentu.</li>
+                <li><strong>Selektor Descendant</strong>: Memilih elemen yang merupakan keturunan dari elemen lain.</li>
+                <li><strong>Selektor Child</strong>: Memilih elemen yang merupakan anak langsung dari elemen lain.</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <pre><code>
 /* Selektor Tag */
 p {
   color: blue;
@@ -125,83 +159,84 @@ div p {
 ul > li {
   list-style-type: square;
 }
-        </code></pre>
-        <div class="example">
-            <p class="box">Ini adalah elemen dengan border hitam dan selektor kelas.</p>
-            <div id="unique">Ini adalah elemen dengan background kuning dan selektor ID.</div>
-            <input type="text" placeholder="Input teks" />
-            <div>
-                <p>Ini adalah paragraf di dalam div.</p>
+            </code></pre>
+            <div class="example">
+                <p class="box">Ini adalah elemen dengan border hitam dan selektor kelas.</p>
+                <div id="unique">Ini adalah elemen dengan background kuning dan selektor ID.</div>
+                <input type="text" placeholder="Input teks" />
+                <div>
+                    <p>Ini adalah paragraf di dalam div.</p>
+                </div>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
             </div>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-            </ul>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>3. Box Model</h2>
-        <p>CSS Box Model adalah konsep yang menjelaskan bagaimana elemen HTML diatur dan ditata. Ini terdiri dari Content, Padding, Border, dan Margin.</p>
-        <p><strong>Contoh:</strong></p>
-        <pre><code>
+        <div class="section">
+            <h2>3. Box Model</h2>
+            <p>CSS Box Model adalah konsep yang menjelaskan bagaimana elemen HTML diatur dan ditata. Ini terdiri dari Content, Padding, Border, dan Margin.</p>
+            <p><strong>Contoh:</strong></p>
+            <pre><code>
 div {
   width: 200px; /* Content width */
   padding: 10px; /* Space inside element */
   border: 1px solid black; /* Border around padding */
   margin: 20px; /* Space outside element */
 }
-        </code></pre>
-        <div class="example" style="width: 200px; padding: 10px; border: 1px solid black; margin: 20px;">
-            Ini adalah contoh elemen dengan box model CSS.
+            </code></pre>
+            <div class="example" style="width: 200px; padding: 10px; border: 1px solid black; margin: 20px;">
+                Ini adalah contoh elemen dengan box model CSS.
+            </div>
         </div>
-    </div>
 
-    <div class="section">
-        <h2>4. Layout yang Unik</h2>
-        <p><strong>Flexbox</strong>: Metode untuk menyusun elemen dalam satu dimensi (baris atau kolom) dengan cara yang fleksibel.</p>
-        <pre><code>
+        <div class="section">
+            <h2>4. Layout yang Unik</h2>
+            <p><strong>Flexbox</strong>: Metode untuk menyusun elemen dalam satu dimensi (baris atau kolom) dengan cara yang fleksibel.</p>
+            <pre><code>
 .container {
   display: flex;
   justify-content: space-between; /* Align items horizontally */
 }
-        </code></pre>
-        <p><strong>Grid</strong>: Metode untuk menyusun elemen dalam dua dimensi (baris dan kolom) dengan cara yang lebih kompleks.</p>
-        <pre><code>
+            </code></pre>
+            <p><strong>Grid</strong>: Metode untuk menyusun elemen dalam dua dimensi (baris dan kolom) dengan cara yang lebih kompleks.</p>
+            <pre><code>
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  gap: 10px;
 }
-        </code></pre>
-        <div class="example" style="display: flex; justify-content: space-between; background-color: #ddd; padding: 10px;">
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
+            </code></pre>
+            <div class="example" style="display: flex; justify-content: space-between; background-color: #ddd; padding: 10px;">
+                <div style="background-color: #bbb; padding: 10px;">Item 1</div>
+                <div style="background-color: #bbb; padding: 10px;">Item 2</div>
+                <div style="background-color: #bbb; padding: 10px;">Item 3</div>
+            </div>
+            <div class="example" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; background-color: #ddd; padding: 10px; margin-top: 20px;">
+                <div style="background-color: #bbb; padding: 10px;">Item 1</div>
+                <div style="background-color: #bbb; padding: 10px;">Item 2</div>
+                <div style="background-color: #bbb; padding: 10px;">Item 3</div>
+            </div>
         </div>
-        <div class="example" style="display: grid; grid-template-columns: 1fr 1fr 1fr; background-color: #ddd; padding: 10px;">
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-        </div>
-    </div>
 
-    <div class="section">
-        <h2>5. Responsive Design</h2>
-        <p>Desain responsif memungkinkan situs web menyesuaikan tampilan berdasarkan ukuran layar perangkat. Ini biasanya dilakukan dengan menggunakan media queries.</p>
-        <pre><code>
+        <div class="section">
+            <h2>5. Responsive Design</h2>
+            <p>Desain responsif memungkinkan situs web menyesuaikan tampilan berdasarkan ukuran layar perangkat. Ini biasanya dilakukan dengan menggunakan media queries.</p>
+            <pre><code>
 @media (max-width: 600px) {
   .container {
     flex-direction: column; /* Stack items vertically on small screens */
   }
 }
-        </code></pre>
-    </div>
+            </code></pre>
+        </div>
 
-    <div class="section">
-        <h2>6. Animasi</h2>
-        <p>CSS Animasi memungkinkan pembuatan animasi dengan menggunakan @keyframes dan properti animation. Animasi dapat mengubah properti CSS dari satu nilai ke nilai lainnya secara bertahap.</p>
-        <p><strong>Contoh:</strong></p>
-        <pre><code>
+        <div class="section">
+            <h2>6. Animasi</h2>
+            <p>CSS Animasi memungkinkan pembuatan animasi dengan menggunakan @keyframes dan properti animation. Animasi dapat mengubah properti CSS dari satu nilai ke nilai lainnya secara bertahap.</p>
+            <p><strong>Contoh:</strong></p>
+            <pre><code>
 /* Keyframe Animations */
 @keyframes colorChange {
     0% { background-color: red; }
@@ -229,49 +264,56 @@ div {
     height: 100px;
     animation: colorChange 4s infinite, moveAndScale 4s infinite;
 }
-        </code></pre>
-        <div class="example animated-box">
-            Animasi contoh
+            </code></pre>
+            <div class="example">
+                <div class="animated-box"></div>
+            </div>
         </div>
-        <p>Dalam contoh di atas:</p>
-        <ul>
-            <li><strong>colorChange</strong>: Animasi ini mengubah warna latar belakang elemen dari merah ke hijau, lalu ke biru.</li>
-            <li><strong>moveAndScale</strong>: Animasi ini memindahkan elemen secara horizontal dan memperbesar ukurannya sementara mengubah warnanya dari merah ke kuning dan kembali ke biru.</li>
-        </ul>
-    </div>
 
-    <div class="section">
-        <h2>7. Variabel</h2>
-        <p>CSS Variabel memungkinkan Anda menyimpan nilai yang dapat digunakan di beberapa tempat dalam stylesheet.</p>
-        <pre><code>
+        <div class="section">
+            <h2>7. Variabel</h2>
+            <p>CSS Variabel memungkinkan Anda menyimpan nilai yang dapat digunakan di beberapa tempat dalam stylesheet.</p>
+            <p><strong>Contoh:</strong></p>
+            <pre><code>
 :root {
-  --main-color: blue;
-}
-
-.box {
-  color: var(--main-color);
-}
-        </code></pre>
-        <div class="example" style="color: blue;">
-            Ini adalah elemen dengan warna teks menggunakan variabel CSS.
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>8. Custom Property</h2>
-        <p>Custom Property adalah cara untuk mendefinisikan variabel dalam CSS yang dapat digunakan di seluruh stylesheet.</p>
-        <pre><code>
-:root {
-  --main-bg-color: lightblue;
+  --main-color: #3498db;
+  --secondary-color: #2ecc71;
 }
 
 .container {
-  background-color: var(--main-bg-color);
+  color: var(--main-color);
+  background-color: var(--secondary-color);
 }
-        </code></pre>
-        <div class="example" style="background-color: lightblue; padding: 10px;">
-            Ini adalah elemen dengan background menggunakan custom property CSS.
+            </code></pre>
+            <div class="example" style="color: #3498db; background-color: #2ecc71; padding: 10px;">
+                Ini adalah contoh menggunakan variabel CSS.
+            </div>
         </div>
+
+        <div class="section">
+            <h2>8. Custom Property</h2>
+            <p>Custom Property adalah cara untuk mendefinisikan variabel dalam CSS yang dapat digunakan di seluruh stylesheet.</p>
+            <p><strong>Contoh:</strong></p>
+            <pre><code>
+:root {
+  --primary-color: #2980b9;
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+            </code></pre>
+            <div class="example">
+                <button class="button">Button</button>
+            </div>
+        </div>
+        
+        <a href="next.html" class="btn-next">Next</a>
     </div>
 </body>
 </html>
